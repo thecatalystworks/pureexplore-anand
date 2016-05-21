@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en" ng-app="travel">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Pure Explore</title>
+	<meta name="description" content="HTML Responsive Template for Tour Agency or Company Based on Twitter Bootstrap 3.x.x" />
+	<meta name="keywords" content="tour package, holiday, hotel, vocation, booking, trip, travel, tourism, tourist" />
+	<meta name="author" content="crenoveative">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Fav and Touch Icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="../static/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="../static/images/ico/favicon.png">
+
+	<!-- CSS Plugins -->
+	<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css" media="screen">	
+	<link href="../static/css/animate.css" rel="stylesheet">
+	<link href="../static/css/main.css" rel="stylesheet">
+	<link href="../static/css/component.css" rel="stylesheet">
+	<link href="../static/css/owl.carousel.css" rel="stylesheet">
+	<link href="../static/css/font-awesome.css" rel="stylesheet">
+
+<link href="../static/css/searchbar.css" rel="stylesheet">
+	<!-- CSS Font Icons -->
+	<link rel="stylesheet" href="../static/icons/ionicons/css/ionicons.css">
+	<link rel="stylesheet" href="../static/icons/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" href="../static/icons/simple-line-icons/css/simple-line-icons.css">
+	<link rel="stylesheet" href="../static/icons/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="../static/icons/rivolicons/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+	<!-- Google Fonts -->
+	<link href="//db.onlinewebfonts.com/c/cdecf5a156bb3db15d4db90b29fff068?family=Adobe+Gothic+Std+B" rel="stylesheet" type="text/css"/>
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+
+
+	<!-- CSS Custom -->
+	<link href="../static/css/style.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<!-- Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="../static/js/controllers.js"></script>
+	 
+<script src="../static/js/ngDialog.min.js"></script>
+	<script type="text/javascript" src="../static/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../static/js/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/carousels.js"></script>
+<style>
+	.hero {
+    background: url(../static/images/Main-header-image.png);
+    background-size: cover;
+}
+</style>
+</head>
+
+<body ng-controller="getTreks">
+
+	<div id="introLoader" class="introLoading"></div>
+	
+	<!-- BEGIN # MODAL LOGIN -->
+	<div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				<button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				
+				<div class="clear"></div>
+				
+				<!-- Begin # DIV Form -->
+				<div id="modal-login-form-wrapper">
+					
+					<!-- Begin # Login Form -->
+					<form id="login-form">
+					
+						<div class="modal-body pb-5">
+					
+							<h4 class="text-center heading mt-10 mb-20">Sign-in</h4>
+						
+							<!-- <button class="btn btn-facebook btn-block">Sign-in with Facebook</button> -->
+							
+							<!--  -->
+							
+							<div class="form-group"> 
+								<input id="login_username" class="form-control" placeholder="username" type="text"> 
+							</div>
+							<div class="form-group"> 
+								<input id="login_password" class="form-control" placeholder="password" type="password"> 
+							</div>
+			
+							<div class="form-group">
+								<div class="row gap-5">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="checkbox-block fa-checkbox"> 
+											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
+											<label class="" for="remember_me_checkbox">remember</label>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 text-right"> 
+										<button id="login_lost_btn" type="button" class="btn btn-link">forgot pass?</button>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+						
+						<div class="modal-footer">
+						
+							<div class="row gap-10">
+								<div class="col-xs-6 col-sm-6 mb-10">
+									<button type="submit" class="btn btn-primary btn-block">Sign-in</button>
+								</div>
+								<div class="col-xs-6 col-sm-6 mb-10">
+									<button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">Cancel</button>
+								</div>
+							</div>
+							<div class="text-left">
+								No account? 
+								<button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+							</div>
+							
+						</div>
+					</form>
+					<!-- End # Login Form -->
+								
+					<!-- Begin | Lost Password Form -->
+					<form id="lost-form" style="display:none;">
+						<div class="modal-body pb-5">
+						
+							<h3 class="text-center heading mt-10 mb-20">Forgot password</h3>
+							<div class="form-group mb-10"> 
+								<input id="lost_email" class="form-control" type="text" placeholder="Enter Your Email">
+							</div>
+							
+							<div class="text-center">
+								<button id="lost_login_btn" type="button" class="btn btn-link">Sign-in</button> or 
+								<button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+							</div>
+							
+						</div>
+						
+						<div class="modal-footer mt-10">
+							
+							<div class="row gap-10">
+								<div class="col-xs-6 col-sm-6">
+									<button type="submit" class="btn btn-primary btn-block">Submit</button>
+								</div>
+								<div class="col-xs-6 col-sm-6">
+									<button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+								</div>
+							</div>
+							
+						</div>
+						
+					</form>
+					<!-- End | Lost Password Form -->
+								
+					<!-- Begin | Register Form -->
+					<form id="register-form" style="display:none;">
+					
+						<div class="modal-body pb-5">
+						
+							<h3 class="text-center heading mt-10 mb-20">Register</h3>
+							
+							
+							
+							
+							<div class="form-group"> 
+								<input id="register_username" class="form-control" type="text" placeholder="Username"> 
+							</div>
+							
+							<div class="form-group"> 
+								<input id="register_email" class="form-control" type="email" placeholder="Email">
+							</div>
+							
+							<div class="form-group"> 
+								<input id="register_password" class="form-control" type="password" placeholder="Password">
+							</div>
+							
+							<div class="form-group"> 
+								<input id="register_password_confirm" class="form-control" type="password" placeholder="Confirm Password">
+							</div>
+
+						</div>
+							
+						<div class="modal-footer mt-10">
+						
+							<div class="row gap-10">
+								<div class="col-xs-6 col-sm-6 mb-10">
+									<button type="submit" class="btn btn-primary btn-block">Register</button>
+								</div>
+								<div class="col-xs-6 col-sm-6 mb-10">
+									<button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
+								</div>
+							</div>
+							
+							<div class="text-left">
+									Already have account? <button id="register_login_btn" type="button" class="btn btn-link">Sign-in</button>
+							</div>
+							
+						</div>
+							
+					</form>
+					<!-- End | Register Form -->
+								
+				</div>
+				<!-- End # DIV Form -->
+								
+			</div>
+		</div>
+	</div>
+	<!-- END # MODAL LOGIN -->
+	
+	<!-- start Container Wrapper -->
+	<div class="container-wrapper">
+
+		<!-- start Header -->
+		<header id="header">
+	  
+			<!-- start Navbar (Header) -->
+			<nav class="navbar navbar-primary navbar-fixed-top navbar-sticky-function">
+
+				<!-- <div class="navbar-top"> -->
+				
+					<div class="container">
+						
+						<div class="flex-row flex-align-middle">
+							<div class="flex-shrink flex-columns">
+								<a class="navbar-logo" href="/">
+									<img  src="../static/images/PureExplorer.png" alt="Logo" />
+								</a>
+							</div>
+							
+						
+							<div class="col-sm-4">
+								
+								<div id="navbar" class="collapse navbar-collapse navbar-arrow">
+									<ul class="nav navbar-nav" id="responsive-menu">
+										<li><a href="index.html">Destination</a>
+											
+										</li>
+										<li><a href="result-grid.html">Blog</a>
+											
+										</li>
+										<li><a href="about.html">About Us</a></li>	
+									
+									</ul>
+									
+								</div><!--/.nav-collapse -->
+								
+							</div>
+							<div class="flex-columns col-sm-4">
+								    <form action="" class="search-form" style="margin: 0px;">
+                <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+            	</div>
+            </form>
+</div>
+								<div class="flex-columns col-sm-4">
+								
+								<div class="pull-right">
+								
+									<div class="navbar-mini">
+										<ul class="clearfix">
+										
+										<li class="user-action"> <!-- anand -->
+												<a href="../static/registration.html">PARTNER WITH US</a>
+											</li>
+											<li class="user-action">
+												<a data-toggle="modal" href="#loginModal" class="btn">Sign up/in</a>
+											</li>
+
+										
+										</ul>
+									</div>
+						
+								</div>
+							</div>
+
+						</div>
+						
+
+					</div>
+					
+		<!-- 		</div> -->
+				
+				
+
+				<!-- <div id="slicknav-mobile"></div> -->
+				
+			</nav>
+			<!-- end Navbar (Header) -->
+
+		</header>
+
+		<!-- <div class="clear"></div> -->
+
+		
+		<!-- start Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- start hero-header with windows height -->
+			<div class="hero">
+				<div class="container" id="herolayer">
+            <div class="row">
+          
+            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2" id="slidercontent">
+            
+              <h1 class="hero-title" style="font-family: Adobe+Gothic+Std+B !important;">Amazing Places, Inspiring Journeys</h1>
+              <p class="lead">Whether you are planning a solo/ independent travel, looking for partners or local reliable guides, we help you plan your date with advanture</p>
+
+            </div>
+      
+   
+          </div>
+        </div>
+
+	<div class="container-fluid" id="searchbartop">
+       <div class="main-search-wrapper full-width ">
+          
+            <div class="inner">
+            <form action="/search" method="post" id="searchfirst">
+              <div class="column-item" >
+               <!-- anand add id -->
+                <div class="form-group">
+                  <select  id="state" ng-model="state" ng-change="getData()" class="form-control" data-placeholder="Choose a Destination" >
+                    <option value="">State</option>
+                    {% for state in states %}
+                    <option value="{{state}}" >{{state}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="column-item" >
+               <!-- anand add id -->
+                <div class="form-group">
+                  <select  id="state" ng-model="state" ng-change="getData()" class="form-control" data-placeholder="Choose a Destination" >
+                    <option value="">Day</option>
+                    {% for state in states %}
+                    <option value="{{state}}" >{{state}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="column-item" >
+               <!-- anand add id -->
+                <div class="form-group">
+                  <select  id="state" ng-model="state" ng-change="getData()" class="form-control" data-placeholder="Choose a Destination" >
+                    <option value="">Difficulty</option>
+                    {% for state in states %}
+                    <option value="{{state}}" >{{state}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="column-item">
+                <div class="form-group">
+                  <select name="destination" id="state" class="form-control" ng-model="trk" data-placeholder="Choose a Destination" >
+                    <option value="">Month of Travel</option>
+                    <option ng-repeat="trek in treks" value="{{trek.name|angular}}">{{trek.name|angular}} </option>
+                  </select>
+                </div>              
+              </div>
+                
+        
+              
+              <div class="column-item for-btn">
+              
+                <div class="form-group">
+                
+                  <a href="/{{state|angular}}/{{trk|angular}}" class="btn btn-primary btn-block">Explore</a>
+                  
+                </div>
+              
+              </div>
+              </form>
+            </div>
+            
+          </div>
+</div>
+
+	
+ 			 </div>
+			<!-- end hero-header with windows height -->
+			
+	
+
+			<section>
+			
+				<div class="container">
+				
+					<div class="row">
+						
+						<div class="col-sm-8 col-md-8 col-sm-offset-2">
+							
+							<div class="section-title">
+							
+								<h2 style="text-align:centre; font-size: 36px; line-height:45px;">Your Guide For Everything Outdoors </h2>
+								
+							
+													</div>	
+							
+						</div>
+					
+					</div>
+					<div class="row" id="icon-blocks">
+						<div class="col-sm-3">
+							<img src="../static/images/icons/1.png" class="img-responsive center-block" style="width:50px;">
+							<h5>Plan Your Adventure</h5>
+							<p><b>Whether it is a solo or an organized trek, our crowd-sourced database covers everything you need to plan one. We just want you to travel.</b></p>
+						</div>
+						<div class="col-sm-3">
+							<img src="../static/images/icons/2.png" class="img-responsive center-block" style="width:50px;">
+							<h5>Meet The Guides</h5>
+							<p><b>Compare and choose from the list of local guides, trek leaders and tour operators as per your budget and dates. Customize your trip as you want.</b></p>
+						</div>
+						<div class="col-sm-3">
+							<img src="../static/images/icons/3.png" class="img-responsive center-block" style="width:50px;">
+							<h5>Create Your Own Group</h5>
+							<p><b>We give you the option to either book a tour just for your group or keep it open for others to join! More the travelers, lesser the cost.</b></p>
+						</div>
+						<div class="col-sm-3">
+							<img src="../static/images/icons/4.png" class="img-responsive center-block" style="width:50px;">
+						<h5>Build A Community</h5>
+						<p><b> Talk to us! Help us keep our database updated and relevant for other travelers to plan their trip. We would love to hear your stories!</b>
+</p>
+						</div>
+					</div>
+					<hr>
+					<h2 class="text-center">Choose Your Destination</h2>
+					{% for feature in featured  %}
+					<div class="col-lg-4 col-md-6 col-xs-6 thumb ">
+						<a class="thumbnail" href="/{{feature.name}}">
+							<img class="img-responsive"  src="{{feature.image}}" alt="">
+							<div class="relative">
+									<h4>{{feature.name}}</h4>
+									<p>{{feature.tagline}}</p>
+								</div>
+						</a>
+
+					</div>
+					{% endfor %}
+					<hr>
+							<div class="more-link" style="background: #333;">
+    <a class="btn btn-secondary btn-block" href="/search" style="color:white; text-align:centre;">Show more tours</a>
+</div>
+					<!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+						<a class="thumbnail" href="#">
+							<img class="img-responsive" src="http://placehold.it/400x300" alt="">
+						</a>
+					</div>
+					<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+						<a class="thumbnail" href="#">
+							<img class="img-responsive" src="http://placehold.it/400x300" alt="">
+						</a>
+					</div>
+					<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+						<a class="thumbnail" href="#">
+							<img class="img-responsive" src="http://placehold.it/400x300" alt="">
+						</a>
+					</div> -->
+					
+					<!-- <div class="grid destination-grid-wrapper">
+			
+					{% for feature in featured %}
+						<div class="grid-item" data-colspan="10"  data-rowspan="{{feature.row}}">
+							<a href="/{{feature.name}}" class="top-destination-image-bg" style="background-image:url('{{feature.image}}');">
+								<div class="relative">
+									<h4>{{feature.name}}</h4>
+									<p>{{feature.tagline}}</p>
+								</div>
+							</a>
+						</div>
+						{% endfor %}
+						
+						
+					</div> -->
+				
+			
+				</div>
+				
+			</section>
+			
+<!--<div class="container-fluid" id="leader">
+			<div class="row">
+			<div class="col-sm-8 col-md-8 col-sm-offset-2">
+			<h2 style="text-align:center; font-size: 36px; line-height:45px;"> Meet Some of Our Local Guides and Trek Leaders </h2>
+			<p>Pure Explore is all about connecting people who love outdoors. We have partnered directly with some of the most experienced and knowledgeable local guides from far flung villages. Not just them, we also work with a number of young and brilliant trek leaders from all walks of life, many who left a comfortable city life behind to pursue their love for outdoors.</p>
+			</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-sm-6" style="padding:0px;">
+					<img src="../static/images/leader/Deepjyoti Biswas.jpg" class="img-responsive">
+					<div class="carousel-caption">
+						<h2 style="text-align: left; color: #96c92c;">Deepjyoti Biswas</h2>
+						<p class="leader-con1">A young mountain guide from Kolkata, Deepjyoti was born to wander, destined to explore and fated to travel. Now with vast experience he continues to wander by providing his travel knowledge and wisdom as Tour Guide and Trek Guide.</p>
+					</div>
+				</div>
+				<div class="col-sm-6" style="padding:0px;">
+					<img src="../static/images/leader/Umendra Negi.jpg" class="img-responsive">
+					<div class="carousel-caption">
+						<h2 style="text-align: right; color: #96c92c;">Umendra Negi</h2>
+						<p class="leader-con2">An enterprising and ambitious local guide from Sari village, Chopta in Uttarakhand, Umendra is also a certified mountaineer. He has been regularly leading trekking groups in Garhwal Himalayas of Uttarakhand for the past few years.</p>
+					</div>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-sm-6" style="padding:0px;">
+					<img src="../static/images/leader/Tanya Roy.jpg" class="img-responsive">
+					<div class="carousel-caption">
+						<h2 style="text-align: left; color:#96c92c;">Tanya Roy </h2>
+						<p class="leader-con1"> The love for mountains was too much for Tanya to resist and she eventually chose the outdoor life over city life. A promoter of Eco-tourism, today she is one of the handful of women in India leading trekking groups to the deep valleys of Himalayas and beyond.</p>
+					</div>
+				</div>
+				<div class="col-sm-6" style="padding:0px;">
+					<img src="../static/images/leader/Purshottam.jpg" class="img-responsive">
+					<div class="carousel-caption">
+						<h2 style="text-align: right; color: #96c92c">Purshottam Singh</h2>
+						<p class="leader-con2">Hailing from the small Kareri village in Himachal Pradesh, Purshottam is surely one of the most friendliest, experienced and knowledgeable local guide in the Dhauladhars. His specialties include the hike to Triund, Indrahar Pass and Kareri Lake.</p>
+					</div>
+				</div>
+				</div>
+			
+			</div> -->
+		
+
+<div class="container" id="Blog">
+<div class="row">
+			<div class="col-sm-8 col-md-8 col-sm-offset-2">
+			<h2 style="text-align:center; font-size: 36px; line-height:45px;"> Pure Explore Blog </h2>
+			
+			</div>
+			<div class="col-md-4">
+				<img src="../static/images/blog/blog1.jpg" class="img-responsive">
+				<h5>Anshu Jamsenpa – The Only Mother in the World to Scale Everest Twice in 10 Days<br><small><b>Aayush Mehta -</b>3 may 2016</small></h5>
+				<p>
+				Anshu Jamsenpa an Everester from Bomdilla, Arunachal Pradesh, the only Indian woman to have scaled the Mt. Everest thrice and the only mother in the world to have done so twice in 10 days.
+				</p>
+				<p><a href="http://www.pureexplore.com/blog/inspiration/anshu-jamsenpa-the-only-mother-in-the-world-to-scale-everest-twice-in-10-days/" >View post</a></p>
+			</div>
+			<div class="col-md-4">
+				<img src="../static/images/blog/blog2.jpg" class="img-responsive">
+				<h5>10 Reasons Why Climbing Mountains Can Enrich Your Life<br><small><b>Saumya Chitravanshi -</b>31 October 2015</small></h5>
+				<p>
+				To be able to be around the mountains can make life beautiful but how does it feel to climb to the top of these mountains? Here are a few things I have gathered about climbing mountains ..
+				</p> 	
+				<p><a href="http://www.pureexplore.com/blog/inspiration/10-reasons-why-climbing-mountains-can-enrich-your-life/" >View post</a></p>
+			</div>
+			<div class="col-md-4">
+				<img src="../static/images/blog/blog4.jpg" class="img-responsive">
+				<h5>Mt. Everest, The Grave To Over 200 Dead Frozen Bodies<br><small><b>Aayush Mehta -</b>1 November 2015</small></h5>
+				<p>
+				Mount Everest is the most popular and most recognized mountain in the world. It is located in the Mahalangur section of the Himalayas with its highest point reaching 8848 meters .
+				</p>
+				<p><a href="http://www.pureexplore.com/blog/inspiration/anshu-jamsenpa-the-only-mother-in-the-world-to-scale-everest-twice-in-10-days/">View post</a></p>
+			</div>
+			</div>
+<br>
+<div class="row"><div class="col-sm-4 col-sm-push-4">
+                    <div class="btn-container">
+                        <a class="btn btn-lg btn-arrow btn-secondary btn-block readmoreblog" target="_blank" href="www.pureexplore.com/blog">
+                            More From the Blog
+</a>                    </div>
+                </div></div>
+   
+</div>
+
+
+			<!-- end hero-header with windows height -->	
+				<hr/>
+
+	<div class="container-fluid" id="popular">
+<div class="col-sm-8 col-md-8 col-sm-offset-2">
+			<h2 style="text-align:center; font-size: 36px; line-height:45px;">Most Popular</h2>
+			
+			</div>
+    <div class="row">
+     
+        <div class="col-md-3">
+          
+            <img src="../static/images/client/1.jpg" alt="test" class="img-responsive">
+            <div class="carousel-caption">
+            <div id="popular1">
+              <h1>Village/Teahouse Treks</h1>
+              <p>Trek from one village to another. No need to carry any special equipment.</p>
+              </div>
+              <div id="popular2"> <p><b>Starting from Rs. 750 <br> OR LESS</b></p></div>
+            </div>
+          
+         </div>
+              <div class="col-md-3">
+          
+            <img src="../static/images/client/4.jpg" alt="test" class="img-responsive">
+            <div class="carousel-caption">
+            <div id="popular1">
+              <h1>Short and Easy Treks</h1>
+              <p>Don't want to walk too much? This list is just for you!</p></div>
+               <div id="popular2"><p><b>Starting from Rs. 750 <br> OR LESS</b></p></div>
+            </div>
+          
+         </div>
+          <div class="col-md-3">
+          
+            <img src="../static/images/client/2.jpg" alt="test" class="img-responsive">
+            <div class="carousel-caption">
+              <div id="popular1">
+              <h1>Pilgrimage <br>Treks</h1>
+              <p>Explore some of the most astonishing religious places only a dedicated pilgrim can reach.</p></div>
+           <div id="popular2"><p><b>Starting from Rs. 750 <br> OR LESS</b></p></div>
+         </div>
+         </div>
+          <div class="col-md-3">
+            <img src="../static/images/client/3.jpg" alt="test" class="img-responsive">
+            <div class="carousel-caption">
+            <div id="popular1">
+              <h1>Camping <br>Spots</h1>
+              <p>If you don't want to walk at all but simply camp under the stars, click here.</p></div>
+              <div id="popular2"><p><b>Starting from Rs. 750 <br> OR LESS</b></p></div>
+
+            </div>
+          
+         </div>
+      
+      
+ 
+  
+  
+</div></div>
+
+
+		
+			<hr/>
+			
+			
+			<section class="bg-light" style="background-image:url('../static/images/testimonial-images.jpg')!important;">
+			
+				<div class="container">
+				
+				
+					
+					<div class="testimonial-wrapper">
+					
+						<div class="owl-carousel">
+	      				<div class="item">
+	        	
+						<p class="testslid"><i>"It was a good decision to go with a local guide for my trek to Har Ki Dun. We had access to not just the treasure of knowledge he possessed but he also provided an insight into the lives of these villagers."</i></p>
+						<p class="testname"><img src="../static/images/testimonial/Rohit.jpg" class="testimg"><b>-Rohit, India <br>Har Ki Dun Trek</b></p>
+	        			</div>
+	       				<div class="item">
+						
+						<p class="testslid"><i>"The place is amazing! We booked a local guide for this trek as we wanted to contribute to the local economy of the village. He took really good care of us and we were glad to have him with us."</i></p>
+						<p class="testname"><img src="../static/images/testimonial/Kevin.jpg" class="testimg"><b>-Kevin, Germany <br>Kareri Lake Trek</b></p>
+	        </div>
+			 <div class="item">
+						
+						<p class="testslid"><i>"Since I was trekking alone, I was a little skeptical in the beginning about hiring a local guide. But Buddhi, the guide was an absolute gem. It is true when they say people from the mountains are the best people!"</i></p>
+						<p class="testname"><img src="../static/images/testimonial/Marissa.jpg" class="testimg"><b>-Marissa, Switzerland<br>Gaumukh Tapovan Trek</b></p>
+	        </div>
+			 <div class="item">
+						
+						<p class="testslid"><i>"Our group of girls didn't need a full package but just needed a local guide to walk with us. It was getting really difficult to find one but Pure Explore made that possible. Thank you so much!"</i></p>
+						<p class="testname"><img src="../static/images/testimonial/Divya.jpg" class="testimg"><b>-Divya, India <br>Valley of Flowers</b></p>
+	        </div>
+	         <div class="item">
+						
+						<p class="testslid"><i>
+"An all girls gang led by a female trek leader! The most awesome trip I have ever had! Will be doing this again."</i></p>
+						<p class="testname"><img src="../static/images/testimonial/Kritika.jpg" class="testimg"><b>-Kritika, India <br>Beas Kund Trek</b></p>
+	        </div>
+	      </div>
+						
+					</div>
+					
+				</div>
+				
+			</section>			
+		</div>
+		<!-- end Main Wrapper -->
+
+		<footer class="footer">
+			<div class="container">
+				<div class="col-sm-3"><img src="../static/images/Logo white.png" class="img-responsive" style="width: 80%;
+    margin-top: 50px;"></div>
+				<div class="col-sm-3" style="padding-bottom: 30px;">
+					<h3>Explore</h3>
+					<ul>
+					<li>Destinations</li>
+					<li>Blog</li>
+					<li>Short & Easy Treks</li>
+					<li>Camping Spots</li>
+					<li>Pilgrimage Treks</li>
+					<li>Village/Teahouse Treks</li>
+					<li></li></ul>
+				</div> 
+				<div class="col-sm-3">
+					<h3>Contribute</h3>
+					<ul><li>Write for Pure Explore</li>
+					<li>Feedback</li>
+					<li></li>
+					<li></li></ul>
+				</div>
+				<div class="col-sm-3">
+					<h3>Company</h3>
+					<ul><li>About Us</li>
+					<li>Partner With Us</li>
+					<li>Terms & Conditions</li>
+					<li>Privacy Policy</li>
+					<li>Copyright Policies</li>
+					<li>Contact Us</li></ul>
+				</div>
+<hr style="border: 1px solid #96c92c;">
+					
+				<div class="container text-center">
+				<h3 style="text-align: center; font-size: 16px;">Connect with us!</h3><br>
+            <a href="https://www.facebook.com/PureExplore/"><i style="color:#96c92c" class="fa fa-lg fa-facebook"></i></a>
+            <a href="https://www.twitter.com/PureExplore/"><i style="color:#96c92c" class="fa fa-lg fa-twitter"> </i></a>
+            <a href=" https://www.instagram.com/PureExplore/"><i style="color:#96c92c" class="fa fa-lg fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/pureexplore-technologies-llp"><i style="color:#96c92c" class="fa fa-lg fa-linkedin">  </i></a>
+            <a href="https://www.pinterest.com/PureExplore/"><i style="color:#96c92c" class="fa fa-lg fa-pinterest"></i> </a>
+            <br> <br>
+            <p class="text-center"><i class="fa fa-copyright" aria-hidden="true"></i> PureExplore Technologies LLP</p>
+        </div><br>
+			
+			</div>
+			
+		</footer>
+		
+	</div>  <!-- end Container Wrapper -->
+ 
+
+ 
+	<!-- start Back To Top -->
+	<div id="back-to-top">
+		 <a href="#"><i class="fa fa-angle-up"></i></a>
+	</div>
+	<!-- end Back To Top -->
+
+
+
+<!-- JS -->
+<script>
+	
+
+</script>
+
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../static/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="../static/js/instagram.min.js"></script>
+<script type="text/javascript" src="../static/js/spin.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="../static/js/select2.full.js"></script>
+<script type="text/javascript" src="../static/js/jquery.responsivegrid.js"></script>
+<script type="text/javascript" src="../static/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="../static/js/readmore.min.js"></script>
+<script type="text/javascript" src="../static/js/slick.min.js"></script>
+<script type="text/javascript" src="../static/js/validator.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.raty.js"></script> 
+<script type="text/javascript" src="../static/js/customs.js"></script>
+<script>
+			
+				//Carousel
+				$(document).ready(function() {
+	        var owl = $('.owl-carousel');
+	        owl.owlCarousel({
+	          items: 1,
+	          loop: true,
+	          margin: 100,
+	          autoplay: true,
+	          autoplayTimeout: 3000,
+	          autoplayHoverPause: true
+	        });
+	      });
+  		</script>
+
+</body>
+</html>
